@@ -1,17 +1,15 @@
 syntax = "proto3";
 
-option java_multiple_files = true;
-option java_package = "io.grpc.examples.helloworld";
-option java_outer_classname = "HelloWorldProto";
-option objc_class_prefix = "HLW";
+option java_package = "ex.grpc";
+option objc_class_prefix = "HSW";
 
-package helloworld;
+package hellostreamingworld;
 
-service Greeter {
-    rpc sayHello (stream string) returns (stream string) {};
-    rpc sayHi (string) returns (string) {};
-}
-
-message HelloWorld {
-    repeated bool value = 5;
+message SearchRequest {
+  oneof test_oneof {
+    string name = 1;
+    int32 sub_message = 2;
+  }
+  map<string, bool> projects = 3;
+  bool hello = 4;
 }
